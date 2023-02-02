@@ -1,1 +1,5 @@
-<h1>list</h1>
+<ul>
+  {{#each tweets as |tweet|}}
+    <li>{{tweet.user}}</li>
+  {{/each}}
+</ul>
