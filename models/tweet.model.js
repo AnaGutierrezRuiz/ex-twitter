@@ -12,11 +12,13 @@ const tweetSchema = new Schema ({
     required: "A message is required"
   },
   createdAt: {
-    type: "String",
-    required: "A date is required"
+    type: "Date",
+    default: Date.now
+    
   },
-  fav: {
-    required: false
+  likes: {
+    type: Number,
+    default: 0
   }
 })
 

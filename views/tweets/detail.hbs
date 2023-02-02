@@ -1,2 +1,11 @@
-{{tweet.user}}
-{{tweet.message}}
+<li>{{tweet.user}}</li>
+<li>{{tweet.message}}</li>
+<li>{{tweet.createdAt}}</li>
+<li>{{tweet.likes}}</li>
+
+<a href="/tweets/{{ tweet.id }}/update" class="btn btn-primary">Edit</button>
+
+
+<form action="/tweets/{{tweet.id}}/delete" method="POST">
+<button class="btn btn-primary">Delete</button>
+</form>

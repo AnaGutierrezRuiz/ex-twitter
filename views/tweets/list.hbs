@@ -1,5 +1,11 @@
 <ul>
   {{#each tweets as |tweet|}}
     <li>{{tweet.user}}</li>
+    <li><a href="/tweets/{{tweet.id}}">{{tweet.message}}</a></li>
+    <li>{{tweet.createdAt}}</li>
+    <li>{{tweet.likes}}</li>
   {{/each}}
 </ul>
+
+ 
+<a href="/tweets/new" class="btn btn-primary">Create a new tweet</a>
