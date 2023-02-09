@@ -5,18 +5,18 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema ({
   name: {
     type: String,
-    required: [true, "email is required"]
+    required: [true, "Name is required"]
   },
   email: {
     type: String,
-    required: [true, "email is required"],
+    required: [true, "Email is required"],
     match: /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/,
     unique: true
   },
   password: {
     type: String,
     required: [true, "password is required"],
-    minLength: 8
+    minLength: [8, "password must be 8 characters minimum"]
   }
 },
   { timestamps: true }
@@ -32,6 +32,8 @@ userSchema.pre("save", function (next) {
         next();
       })
       .catch(next)
+  } else {
+      next();
   }
 })
 

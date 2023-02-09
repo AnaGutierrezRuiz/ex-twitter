@@ -4,6 +4,8 @@ const logger = require('morgan');
 require('./configs/db.config');
 require('./configs/hbs.config');
 
+const { session } = require('./configs/session.config')
+
 const express = require('express');
 const app = express();
 
@@ -24,5 +26,8 @@ app.use((err, req, res, next) => {
   res.send('Oops, something went wrong');
 })
 
+app.use(session);
+
+
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Application running at port ${port}`));
+app.listen(port, () => console.log(`Application running at port ${port}`))

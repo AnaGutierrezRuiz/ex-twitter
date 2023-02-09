@@ -10,9 +10,9 @@
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input name="name" type="text" value="{{user.name}}" class="form-control {{#if errors.name}}is-invalid{{/if}}" id="name">
-    {{#if errors.user}}
+    {{#if errors.name}}
       <div class="invalid-feedback">
-        {{errors.user.message}}
+        {{errors.name.message}}
       </div>
     {{/if}}
   </div>
