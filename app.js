@@ -4,13 +4,16 @@ const logger = require('morgan');
 require('./configs/db.config');
 require('./configs/hbs.config');
 
-const { session } = require('./configs/session.config')
+const { session, loadSessionUser } = require('./configs/session.config')
 
 const express = require('express');
 const app = express();
 
 app.use(logger('dev'));
 app.use(express.urlencoded());
+
+app.use(session);
+app.use(loadSessionUser);
 
 app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/views`);
@@ -26,7 +29,6 @@ app.use((err, req, res, next) => {
   res.send('Oops, something went wrong');
 })
 
-app.use(session);
 
 
 const port = process.env.PORT || 3000;

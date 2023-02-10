@@ -25,8 +25,8 @@ router.get('/users/new', users.create);
 router.post('/users', users.doCreate);
 
 router.get('/users/new', users.create);
-router.post('/login', users.doCreate);
+router.post('/users', users.doCreate);
 router.get('/login', users.login);
-router.post('/tweets', users.doLogin);
+router.post('/login', users.doLogin);
 
 module.exports = router;
